@@ -13,22 +13,20 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @ToString
-@Entity
-@Table(name = "comments", schema = "comment")
 public class CommentEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy =GenerationType.IDENTITY)
     @Column(name = "comment_id")
     private Long id;
 
     @Column(name = "text", nullable = false, length = 512)
     private String text;
 
-    @Column(name = "movie_id", nullable = false)
+    @Column(name = "movie_id", nullable = false,unique = true)
     private Long movieId;
 
-    @Column(name = "user_id", nullable = false)
-    private Long UserId;
+    @Column(name = "user_id", nullable = false,unique = true)
+    private Long userId;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false)
