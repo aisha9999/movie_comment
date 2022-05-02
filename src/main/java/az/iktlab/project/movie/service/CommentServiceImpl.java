@@ -30,7 +30,7 @@ public class CommentServiceImpl implements CommentService {
 
     @Override
     public List<CommentDto> getAll() {
-        List<CommentEntity> commentEntities = commentRepo.findAll();
+        List<CommentEntity> commentEntities = (List<CommentEntity>) commentRepo.findAll();
         return commentEntities.stream()
                 .map(commentEntity -> new CommentDto().builder()
                         .id(commentEntity.getId())

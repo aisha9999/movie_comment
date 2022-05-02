@@ -13,6 +13,8 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 @Builder
 @ToString
+@Entity
+@Table(name="user_comments")
 public class CommentEntity {
     @Id
     @GeneratedValue(strategy =GenerationType.IDENTITY)
